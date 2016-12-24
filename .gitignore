@@ -1,0 +1,8 @@
+# vagrant box
+.vagrant/
+
+# phpstorm
+.idea/
+
+# netbeans
+.nbproject/
