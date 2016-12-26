@@ -3,6 +3,7 @@
 # It installs some packages and sets up mysql
 . /vagrant/provision-scripts/config_default.sh
 
+echo "WoW WoW WoW WoW WoW WoW WoW WoW WoW WoW WoW WoW WoW WoW WoW"
 echo "setup_root.sh starting"
 
 echo "Updating apt repository"
@@ -21,3 +22,4 @@ apt-get install -y build-essential gcc g++ automake git-core autoconf make patch
                    libssl-dev grep binutils zlibc libc6 libbz2-dev cmake subversion libboost-all-dev
 
 echo "setup_root.sh finished"
+echo "WoW WoW WoW WoW WoW WoW WoW WoW WoW WoW WoW WoW WoW WoW WoW"

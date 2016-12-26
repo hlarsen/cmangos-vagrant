@@ -3,6 +3,7 @@
 # It takes care of compilation, db updates and configs
 . /vagrant/provision-scripts/config_default.sh
 
+echo "WoW WoW WoW WoW WoW WoW WoW WoW WoW WoW WoW WoW WoW WoW WoW"
 echo "setup_user.sh starting"
 
 echo "Using $INSTALL_PREFIX as the install directory"
@@ -29,10 +30,18 @@ fi
 echo "Retrieving and building the core"
 rm -rf "$GIT_REPO_CORE_ABBR/*"
 git clone -b "$GIT_REPO_CORE_BRANCH" "$GIT_REPO_CORE" "$GIT_REPO_CORE_ABBR"
+if [ "$?" != "0" ]; then
+  echo "Error cloning core repo" 1>&2
+  exit 1
+fi
 rm -rf build/*
 cd build
 cmake "../$GIT_REPO_CORE_ABBR" -DCMAKE_INSTALL_PREFIX=\../run -DPCH=1 -DDEBUG=0
 make -j "$VAGRANT_VM_CORES"
+if [ "$?" != "0" ]; then
+  echo "Error compiling core" 1>&2
+  exit 1
+fi
 make -j "$VAGRANT_VM_CORES" install
 
 # Setup configs
@@ -65,6 +74,10 @@ cd "$INSTALL_PREFIX"
 echo "Retrieving and importing $GIT_REPO_DB_ABBR"
 rm -rf "$GIT_REPO_DB_ABBR/*"
 git clone -b "$GIT_REPO_DB_BRANCH" "$GIT_REPO_DB" "$GIT_REPO_DB_ABBR"
+if [ "$?" != "0" ]; then
+  echo "Error cloning db repo" 1>&2
+  exit 1
+fi
 cd "$GIT_REPO_DB_ABBR/"
 if [ ! -e "InstallFullDB.config" ]; then
     ./InstallFullDB.sh
@@ -73,3 +86,4 @@ fi
 ./InstallFullDB.sh
 
 echo "setup_user.sh finished"
+echo "WoW WoW WoW WoW WoW WoW WoW WoW WoW WoW WoW WoW WoW WoW WoW"

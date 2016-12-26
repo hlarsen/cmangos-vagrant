@@ -12,7 +12,6 @@ Vagrant.configure(2) do |config|
   config.vm.network "forwarded_port", guest: 3306, host: 3306 # mysql database
 
   config.vm.provision "shell", inline: <<-SHELL
-    sudo chmod +x /vagrant/provision-scripts/setup.sh
     sudo /vagrant/provision-scripts/setup.sh
   SHELL
 
