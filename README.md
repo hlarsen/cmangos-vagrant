@@ -9,15 +9,15 @@ likely save you some hassle.
 
 Follow these steps to get up and running:
 
-- If needed, the Vagrantfile and set the VM CPU and RAM (defaults to 2 cores/2GB)
+- If desired, update the Vagrantfile and set the VM CPU and RAM (defaults to 2 cores/2GB)
 - run `vagrant up $expansion` where $expansion is classic, tbc or wotlk
 
 This will build the vagrant box and run the provisioning script. This process includes compiling the server, so it can
 take some time depending on how fast your computer is. After this is done, the client data needs to be copied to
-the /vagrant/client-data/$expansion directory:
+the cmangos-vagrant/client-data/$expansion directory:
 
 - Extract all data from the client (outside the scope of this README)
-- Move extracted data to /client-data/$expansion (in the directory with the Vagrantfile - this dir is shared with the Vagrant box)
+- Move extracted data to the proper cmangos-vagrant/client-data/$expansion directory
 
 Then, the server can be started (both mangosd and realmd must be running, i suggest using screen/tmux/byobu):
 
@@ -37,7 +37,8 @@ Set your realmlist to 127.0.0.1 and you should be ready to connect using the acc
 
 ### Notes
 
-This has been tested with Classic, TBC, and WotLK as they have "official" cMaNGOS database projects.
+This has been tested with Classic, TBC, and WotLK as they have "official" cMaNGOS database projects. You can use the
+Vagrantfile to bring up VMs for each expansion, you just need the proper client-data for them.
 
 If the world database install fails, there is probably an issue with a recent update sql file. The db install happens 
 last as any errors are most likely with this step. It should be fairly easy to find the problem; just fix it and re-run
