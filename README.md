@@ -12,12 +12,12 @@ Follow these steps to get up and running:
 - If needed, the Vagrantfile and set the VM CPU and RAM (defaults to 2 cores/2GB)
 - run `vagrant up $expansion` where $expansion is classic, tbc or wotlk
 
-This will build the vagrant box and run the two provisioning scripts. This process includes compiling the server, so
-it can take some time depending on how fast your computer is. After this is done, the client data needs to be copied to
-the /vagrant/client-data directory:
+This will build the vagrant box and run the provisioning script. This process includes compiling the server, so it can
+take some time depending on how fast your computer is. After this is done, the client data needs to be copied to
+the /vagrant/client-data/$expansion directory:
 
-- Extract all data from the client (Outside the scope of this README)
-- Move extracted data to /client-data (in the directory with the Vagrantfile - this dir is shared with the Vagrant box)
+- Extract all data from the client (outside the scope of this README)
+- Move extracted data to /client-data/$expansion (in the directory with the Vagrantfile - this dir is shared with the Vagrant box)
 
 Then, the server can be started (both mangosd and realmd must be running, i suggest using screen/tmux/byobu):
 
@@ -30,10 +30,10 @@ If you're not using screen or another multiplexer, run `./realmd &` to run it in
 Once the server has started you can use the CLI to add an account and set its expansion and gm levels:
 
 - account create $username $password
-- account set addon $username $addonlvl    # 0 = vanilla, 1 = tbc, etc
+- account set addon $username $addonlvl    # 0 = vanilla, 1 = tbc, etc (only required for TBC and WoTLK)
 - account set gmlevel $username 3          # 0 = player, 1/2 = ?, 3 = admin
 
-Set your realmlist to 127.0.0.1 when connecting.
+Set your realmlist to 127.0.0.1 and you should be ready to connect using the account you just created.
 
 ### Notes
 

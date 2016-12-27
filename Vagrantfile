@@ -12,6 +12,7 @@ Vagrant.configure(2) do |config|
   # enable for another interface with an IP on your LAN
   # config.vm.network "public_network"
 
+  # VM config (up CPU/RAM for faster compilation)
   config.vm.provider "virtualbox" do |v|
     v.cpus = 2
     v.memory = 2048

@@ -119,8 +119,13 @@ cd "$GIT_REPO_DB_ABBR/"
 if [ ! -e "InstallFullDB.config" ]; then
     ./InstallFullDB.sh
     echo "CORE_PATH=\"../$GIT_REPO_CORE_ABBR/\"" >> InstallFullDB.config
+    echo "FORCE_WAIT=\"NO\"" >> InstallFullDB.config
 fi
 ./InstallFullDB.sh
+if [ "$?" != "0" ]; then
+  echo "\n\nError installing db - fix and run ./InstallFullDB.sh to try again" 1>&2
+  exit 1
+fi
 
 echo "\nWoW core and database installation finished\n"
 echo "\n\nWoW WoW WoW WoW WoW WoW WoW WoW WoW WoW WoW WoW WoW WoW WoW\n\n"
