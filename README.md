@@ -40,9 +40,11 @@ Set your realmlist to 127.0.0.1 and you should be ready to connect using the acc
 This has been tested with Classic, TBC, and WotLK as they have "official" cMaNGOS database projects. You can use the
 Vagrantfile to bring up VMs for each expansion, you just need the proper client-data for them.
 
+We compile the client data extractors as well as PlayerBot.
+
 If the world database install fails, there is probably an issue with a recent update sql file. The db install happens 
 last as any errors are most likely with this step. It should be fairly easy to find the problem; just fix it and re-run
-the db install and you should be good go to when it successfully completes.  
+the db install and you should be good go to when it successfully completes.
 
 ### Issues
 
