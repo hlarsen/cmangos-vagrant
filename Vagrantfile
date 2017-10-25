@@ -6,11 +6,11 @@ Vagrant.configure(2) do |config|
   config.vm.box = "bento/ubuntu-16.04"
 
   # forward ports so our client can connect to the normal ports on the host machine (localhost)
-  #config.vm.network "forwarded_port", guest: 3724, host: 3724 # auth server port
-  #config.vm.network "forwarded_port", guest: 8085, host: 8085 # world server port
+  config.vm.network "forwarded_port", guest: 3724, host: 3724 # auth server port
+  config.vm.network "forwarded_port", guest: 8085, host: 8085 # world server port
 
   # disable or change port if you're running a mysql server on your host machine and there is a conflict
-  #config.vm.network "forwarded_port", guest: 3306, host: 3306 # mysql database
+  config.vm.network "forwarded_port", guest: 3306, host: 3306 # mysql database
 
   # enable for another interface with an IP on your LAN
   # config.vm.network "public_network"
